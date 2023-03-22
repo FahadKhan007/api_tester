@@ -19,6 +19,9 @@ class HomeScreen extends StatelessWidget {
         title: const Center(
           child: Text(
             'Api Tester',
+            style: TextStyle(
+              fontFamily: 'Blanka',
+            ),
           ),
         ),
       ),
