@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:api_app/models/model.dart';
+import 'package:api_app/models/model_one.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -12,16 +12,16 @@ class ScreenOne extends StatefulWidget {
 }
 
 class _ScreenOneState extends State<ScreenOne> {
-  List<PostModel> postsList = [];
+  List<PostModelOne> postsList = [];
 
-  Future<List<PostModel>> getData() async {
+  Future<List<PostModelOne>> getData() async {
     final response =
         await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
     var data = jsonDecode(response.body.toString());
     if (response.statusCode == 200) {
       postsList.clear();
       for (Map<String, dynamic> index in data) {
-        postsList.add(PostModel.fromJson(index));
+        postsList.add(PostModelOne.fromJson(index));
       }
       return postsList;
     } else {
