@@ -2,7 +2,6 @@ import 'package:api_app/screens/screen_five.dart';
 import 'package:api_app/screens/screen_one.dart';
 import 'package:api_app/screens/screen_three.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 
 import 'screens/screen_four.dart';
 import 'screens/screen_seven.dart';
@@ -15,7 +14,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffD2EAF7),
+      backgroundColor: const Color(0xffD2EAF7),
       appBar: AppBar(
         title: const Center(
           child: Text(
