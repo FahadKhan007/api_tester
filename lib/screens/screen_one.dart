@@ -50,102 +50,97 @@ class _ScreenOneState extends State<ScreenOne> {
           ),
           Expanded(
             child: FutureBuilder(
-                future: getData(),
-                builder: (context, snapshot) {
-                  if (snapshot.hasData) {
-                    return ListView.builder(
-                      itemCount: postsList.length,
-                      itemBuilder: (context, index) {
-                        return Container(
-                          // height: 100,
-                          color: const Color(0xffE48965),
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 10),
-                          margin: const EdgeInsets.all(10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              RichText(
-                                text: TextSpan(
-                                  children: [
-                                    const TextSpan(
-                                      text: 'userId: ',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+              future: getData(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return ListView.builder(
+                    itemCount: postsList.length,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        color: const Color(0xffE48965),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 10),
+                        margin: const EdgeInsets.all(10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  const TextSpan(
+                                    text: 'userId: ',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w500,
                                     ),
-                                    TextSpan(
-                                      text: postsList[index].userId.toString(),
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                  TextSpan(
+                                    text: postsList[index].userId.toString(),
+                                  ),
+                                ],
                               ),
-                              RichText(
-                                text: TextSpan(
-                                  children: [
-                                    const TextSpan(
-                                      text: 'id: ',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                            ),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  const TextSpan(
+                                    text: 'id: ',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w500,
                                     ),
-                                    TextSpan(
-                                      text: postsList[index].id.toString(),
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                  TextSpan(
+                                    text: postsList[index].id.toString(),
+                                  ),
+                                ],
                               ),
-                              RichText(
-                                text: TextSpan(
-                                  children: [
-                                    const TextSpan(
-                                      text: 'title: ',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                            ),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  const TextSpan(
+                                    text: 'title: ',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w500,
                                     ),
-                                    TextSpan(
-                                      text: postsList[index].title.toString(),
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                  TextSpan(
+                                    text: postsList[index].title.toString(),
+                                  ),
+                                ],
                               ),
-                              RichText(
-                                text: TextSpan(
-                                  children: [
-                                    const TextSpan(
-                                      text: 'body: ',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                            ),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  const TextSpan(
+                                    text: 'body: ',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w500,
                                     ),
-                                    TextSpan(
-                                      text: postsList[index].body.toString(),
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                  TextSpan(
+                                    text: postsList[index].body.toString(),
+                                  ),
+                                ],
                               ),
-                              // Text('id: ${postsList[index].id.toString()}'),
-                              // Text(
-                              //     'title: ${postsList[index].title.toString()}'),
-                              // Text('body: ${postsList[index].body.toString()}'),
-                            ],
-                          ),
-                        );
-                      },
-                    );
-                  } else {
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                      // child: Text('Loading...'),
-                    );
-                  }
-                }),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  );
+                } else {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+              },
+            ),
           ),
         ],
       ),
