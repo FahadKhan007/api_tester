@@ -25,8 +25,6 @@ class _ScreenFourState extends State<ScreenFour> {
   Future<PostModelFour?> postData(
       String userId, String title, String body) async {
     PostModelFour? postModelFour;
-    // print('Fahad is posting now....');
-    // final url = 'https://jsonplaceholder.typicode.com/posts';
     http.Response response = await http.post(
       Uri.parse('https://jsonplaceholder.typicode.com/posts'),
       body: {
@@ -104,7 +102,6 @@ class _ScreenFourState extends State<ScreenFour> {
                       setState(() {
                         _post = post;
                       });
-                      // print('>>>>>>>>>>>>>  Posting data  <<<<<<<<<<<<<<<<<');
                     },
                     child: const Text('Submit'),
                   ),
