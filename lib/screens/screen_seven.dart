@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:http/http.dart' as http;
 
@@ -17,86 +16,81 @@ class ScreenSeven extends StatefulWidget {
 class _ScreenSevenState extends State<ScreenSeven> {
   List<PostModelSeven> postsList = [];
 
-  final TextEditingController _userIdC = TextEditingController();
-  final TextEditingController _titleC = TextEditingController();
-  final TextEditingController _bodyC = TextEditingController();
-
   PostModelSeven? _delete;
 
-  Future<PostModelSeven> deleteData(String userId) async {
+  Future<PostModelSeven?> deleteData() async {
     PostModelSeven? postModelSeven;
 
     http.Response response = await http.delete(
       Uri.parse('https://jsonplaceholder.typicode.com/posts/1'),
     );
     var data = json.decode(response.body);
-    postModelSeven = PostModelSeven.fromJson(data);
-    return postModelSeven;
+    if (response.statusCode == 200) {
+      // ignore: use_build_context_synchronously
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          backgroundColor: Color(0xffE48965),
+          content: Text('POST/1 deleted successfully'),
+        ),
+      );
+
+      postModelSeven = PostModelSeven.fromJson(data);
+      return postModelSeven;
+    } else {
+      return null;
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(
-          child: Text('PATCH /posts/1'),
-        ),
+        title: const Text('DELETE /posts/1'),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 20,
-            ),
-            const Text(
-              'Delete an object from the list',
-              style: TextStyle(
-                color: Colors.green,
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
+        child: Center(
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 20,
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                children: <Widget>[
-                  TextFormField(
-                    controller: _userIdC,
-                    decoration: const InputDecoration(
-                      labelText: 'user id',
+              const Text(
+                'Delete an object from the list',
+                style: TextStyle(
+                  color: Color(0xffE48965),
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  children: <Widget>[
+                    ElevatedButton(
+                      onPressed: () async {
+                        PostModelSeven? delete = await deleteData();
+                        setState(() {
+                          _delete = delete;
+                        });
+                      },
+                      child: const Text('Delete'),
                     ),
-                    keyboardType: TextInputType.number,
-                    inputFormatters: <TextInputFormatter>[
-                      FilteringTextInputFormatter.digitsOnly
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  ElevatedButton(
-                    onPressed: () async {
-                      PostModelSeven delete = await deleteData(_userIdC.text);
-                      setState(() {
-                        _delete = delete;
-                      });
-                    },
-                    child: const Text('Submit'),
-                  ),
-                  const SizedBox(
-                    height: 40,
-                  ),
-                  _delete == null
-                      ? const SpinKitFoldingCube(
-                          color: Colors.black45,
-                          size: 80.0,
-                        )
-                      : Text(
-                          "Post: ${_delete!} is deleted by \nUser: ${_delete!}",
-                        ),
-                ],
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    _delete == null
+                        ? const SpinKitHourGlass(
+                            color: Colors.black45,
+                            size: 80.0,
+                          )
+                        : const Text(
+                            "Post: 1 is deleted",
+                          ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -49,9 +49,7 @@ class _ScreenSixState extends State<ScreenSix> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(
-          child: Text('PATCH /posts/1'),
-        ),
+        title: const Text('PATCH /posts/1'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -62,7 +60,7 @@ class _ScreenSixState extends State<ScreenSix> {
             const Text(
               'Partially update an object of the list',
               style: TextStyle(
-                color: Colors.green,
+                color: Color(0xffE48965),
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),

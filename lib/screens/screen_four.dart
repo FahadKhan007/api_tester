@@ -50,9 +50,7 @@ class _ScreenFourState extends State<ScreenFour> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(
-          child: Text('POST /posts'),
-        ),
+        title: const Text('POST /posts'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -63,7 +61,7 @@ class _ScreenFourState extends State<ScreenFour> {
             const Text(
               'Post an object to the list',
               style: TextStyle(
-                color: Colors.green,
+                color: Color(0xffE48965),
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),

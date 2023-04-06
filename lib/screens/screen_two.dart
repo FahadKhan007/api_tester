@@ -26,18 +26,19 @@ class ScreenTwo extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Center(
-          child: Text(
-            'GET /posts/1',
-          ),
+        title: const Text(
+          'GET /posts/1',
         ),
       ),
       body: Column(
         children: [
+          const SizedBox(
+            height: 10,
+          ),
           const Text(
             'Retrived Object',
             style: TextStyle(
-              color: Colors.green,
+              color: Color(0xffE48965),
               fontSize: 18,
               fontWeight: FontWeight.bold,
             ),
@@ -52,7 +53,7 @@ class ScreenTwo extends StatelessWidget {
                       itemBuilder: (context, index) {
                         return Container(
                           // height: 100,
-                          color: Colors.green[400],
+                          color: const Color(0xffE48965),
                           padding: const EdgeInsets.symmetric(
                               horizontal: 10, vertical: 10),
                           margin: const EdgeInsets.all(10),

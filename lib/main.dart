@@ -1,6 +1,5 @@
 import 'package:api_app/colors.dart';
 import 'package:api_app/home_screen.dart';
-// import 'package:api_app/screens/screen_one.dart';
 import 'package:flutter/material.dart';
 
 void main() {

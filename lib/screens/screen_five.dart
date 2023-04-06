@@ -49,9 +49,7 @@ class _ScreenFiveState extends State<ScreenFive> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(
-          child: Text('PUT /posts/1'),
-        ),
+        title: const Text('PUT /posts/1'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -62,7 +60,7 @@ class _ScreenFiveState extends State<ScreenFive> {
             const Text(
               'Update an object of the list',
               style: TextStyle(
-                color: Colors.green,
+                color: Color(0xffE48965),
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
@@ -105,7 +103,6 @@ class _ScreenFiveState extends State<ScreenFive> {
                       setState(() {
                         _put = post;
                       });
-                      // print('>>>>>>>>>>>>>  Posting data  <<<<<<<<<<<<<<<<<');
                     },
                     child: const Text('Submit'),
                   ),
@@ -113,7 +110,7 @@ class _ScreenFiveState extends State<ScreenFive> {
                     height: 40,
                   ),
                   _put == null
-                      ? const SpinKitDualRing(
+                      ? const SpinKitPouringHourGlass(
                           color: Colors.black45,
                           size: 80.0,
                         )
