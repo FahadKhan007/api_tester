@@ -54,7 +54,6 @@ class ScreenThree extends StatelessWidget {
                       itemCount: commentsList.length,
                       itemBuilder: (context, index) {
                         return Container(
-                          // height: 100,
                           color: const Color(0xffE48965),
                           padding: const EdgeInsets.symmetric(
                               horizontal: 10, vertical: 10),
@@ -145,10 +144,6 @@ class ScreenThree extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              // Text('id: ${commentsList[index].id.toString()}'),
-                              // Text(
-                              //     'title: ${commentsList[index].title.toString()}'),
-                              // Text('body: ${commentsList[index].body.toString()}'),
                             ],
                           ),
                         );
@@ -157,7 +152,6 @@ class ScreenThree extends StatelessWidget {
                   } else {
                     return const Center(
                       child: CircularProgressIndicator(),
-                      // child: Text('Loading...'),
                     );
                   }
                 }),
