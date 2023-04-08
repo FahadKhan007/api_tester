@@ -32,7 +32,6 @@ class _ScreenSixState extends State<ScreenSix> {
       body: {
         "userId": userId,
         "title": title,
-        // "body": body,
       },
     );
     var data = json.decode(response.body);
